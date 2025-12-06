@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aprender a decir “NO” – Guía para Fátima</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #f4e9ff 0, #f7f2ff 40%, #fdfbff 100%);
+      color: #24213b;
+      padding: 20px 12px 40px;
+    }
+
+    .app {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 20px 45px rgba(82, 44, 191, 0.18);
+      overflow: hidden;
+    }
+
+    /* Encabezado */
+    .hero {
+      background: linear-gradient(135deg, #9b5cff, #7a4bff, #f862da);
+      color: #ffffff;
+      padding: 22px 22px 26px;
+      border-radius: 28px 28px 24px 24px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #ffe88b;
+    }
+
+    .hero-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 520px;
+      opacity: 0.95;
+    }
+
+    /* Contenido principal */
+    .main {
+      padding: 16px 18px 22px;
+    }
+
+    /* Pestañas */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tab-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      background: #f1ecff;
+      color: #4b3d80;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    .tab-btn span.icon {
+      font-size: 15px;
+    }
+
+    .tab-btn.active {
+      background: #6f4bff;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(111, 75, 255, 0.35);
+    }
+
+    /* Secciones */
+    .section {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tarjeta principal */
+    .card {
+      background: #faf7ff;
+      border-radius: 22px;
+      padding: 16px 18px 14px;
+      border: 1px solid #ece4ff;
+      margin-bottom: 14px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .card-title-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e8f9ed;
+      font-size: 17px;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .pill-tag {
+      border-radius: 999px;
+      background: #efe7ff;
+      color: #5b42af;
+      font-size: 11px;
+      padding: 4px 9px;
+      white-space: nowrap;
+    }
+
+    .card p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .card p strong {
+      font-weight: 600;
+    }
+
+    .label-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .label {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .label-heart {
+      background: #ffecef;
+      color: #b23563;
+    }
+    .label-limit {
+      background: #e7f7ff;
+      color: #245f86;
+    }
+
+    /* Bloques dentro de secciones */
+    .block {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid #eee5ff;
+      padding: 12px 13px;
+      margin-bottom: 10px;
+    }
+
+    .block-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .block ul {
+      list-style: none;
+      margin-top: 2px;
+    }
+
+    .block ul li {
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 4px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .block ul li::before {
+      content: "•";
+      position: absolute;
+      left: 3px;
+      top: 0;
+      color: #7a4bff;
+    }
+
+    .idea-clave {
+      margin-top: 10px;
+      padding: 11px 12px;
+      border-radius: 16px;
+      background: #f4ecff;
+      font-size: 12px;
+      border: 1px dashed #c7b0ff;
+    }
+
+    .idea-clave strong {
+      font-weight: 700;
+    }
+
+    /* Frases */
+    .phrase {
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 9px 11px;
+      border-radius: 14px;
+      background: #fff6fb;
+      border: 1px solid #ffd3eb;
+      margin-bottom: 8px;
+    }
+
+    .phrase small {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      opacity: 0.75;
+    }
+
+    /* Créditos */
+    .creditos {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 10px;
+      color: #7e5fb7;
+      opacity: 0.9;
+      padding-bottom: 6px;
+    }
+    .creditos span {
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 18px 16px 22px;
+      }
+
+      .hero-title {
+        font-size: 21px;
+      }
+
+      .main {
+        padding: 14px 14px 18px;
+      }
+
+      .card {
+        padding: 14px 13px;
+      }
+
+      .tabs {
+        gap: 6px;
+      }
+
+      .tab-btn {
+        font-size: 12px;
+        padding: 6px 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Encabezado -->
+    <header class="hero">
+      <div class="chip">
+        <span class="chip-dot"></span>
+        <span>Espacio personal para Fátima</span>
+      </div>
+      <h1 class="hero-title">Aprender a decir “NO”</h1>
+      <p class="hero-subtitle">
+        Decir NO no te hace mala. Te cuida, te sostiene y te ayuda a vivir sin el peso
+        de cargas que no te corresponden.
+      </p>
+    </header>
+
+    <!-- Contenido -->
+    <main class="main">
+
+      <!-- Pestañas -->
+      <nav class="tabs">
+        <button class="tab-btn active" data-section="inicio">
+          <span class="icon">🏠</span> Inicio
+        </button>
+        <button class="tab-btn" data-section="por-que">
+          <span class="icon">❓</span> Por qué cuesta
+        </button>
+        <button class="tab-btn" data-section="no-suave">
+          <span class="icon">💛</span> NO suave
+        </button>
+        <button class="tab-btn" data-section="ej-suaves">
+          <span class="icon">🫧</span> Ejemplos suaves
+        </button>
+        <button class="tab-btn" data-section="no-firme">
+          <span class="icon">🔥</span> NO firme
+        </button>
+        <button class="tab-btn" data-section="ej-firmes">
+          <span class="icon">🗣️</span> Ejemplos firmes
+        </button>
+        <button class="tab-btn" data-section="antes-si">
+          <span class="icon">🧠</span> Antes del “sí”
+        </button>
+        <button class="tab-btn" data-section="ejercicio">
+          <span class="icon">💪</span> Ejercicio
+        </button>
+        <button class="tab-btn" data-section="frases">
+          <span class="icon">💖</span> Frases
+        </button>
+      </nav>
+
+      <!-- Sección: Inicio -->
+      <section class="section active" id="inicio">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon">🌿</div>
+              <div class="card-title">Empezar por mí</div>
+            </div>
+            <div class="pill-tag">Introducción</div>
+          </div>
+          <p>
+            Esta guía es para ayudarme a recuperar algo muy importante:
+            <strong>mi capacidad de protegerme sin sentir culpa.</strong>
+          </p>
+          <p>
+            No estoy aprendiendo a ser dura. Estoy aprendiendo a ser
+            <strong>justa conmigo misma.</strong>
+          </p>
+          <div class="label-row">
+            <span class="label label-heart">💗 Auto-cuidado</span>
+            <span class="label label-limit">🛑 Límites sanos</span>
+          </div>
+          <div class="idea-clave">
+            <strong>IDEA CLAVE:</strong> Decir NO no es un acto de egoísmo;
+            es un acto de <strong>equilibrio emocional</strong>.
+          </div>
+        </article>
+
+        <div class="block">
+          <div class="block-title">Lo que quiero lograr con esta guía</div>
+          <ul>
+            <li>Sentirme tranquila cuando digo que no.</li>
+            <li>Dejar de tomar decisiones solo desde la culpa o el miedo.</li>
+            <li>Reconocer qué sí puedo hacer y qué ya no me corresponde.</li>
+            <li>Dar ayuda desde el cariño, no desde el sacrificio constante.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Sección: Por qué cuesta -->
+      <section class="section" id="por-que">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon" style="background:#ffe8f0;">🧩</div>
+              <div class="card-title">¿Por qué me cuesta tanto decir NO?</div>
+            </div>
+            <div class="pill-tag">Entenderme</div>
+          </div>
+          <p>
+            Me cuesta decir NO porque, desde hace años, aprendí que mi valor
+            estaba en <strong>resolverle la vida a los demás</strong>,
+            aunque eso significara perder partes de la mía.
+          </p>
+          <p>
+            Cuando intento poner un límite, aparece el miedo: “se van a molestar”,
+            “me van a dejar de querer”, “soy mala hija si no cedo”.
+          </p>
+        </article>
+
+        <div class="block">
+          <div class="block-title">Creencias que alimentan la culpa</div>
+          <ul>
+            <li>“Si no ayudo, soy egoísta”.</li>
+            <li>“Es mi obligación arreglar los problemas de mi mamá”.</li>
+            <li>“Tengo que decir que sí para evitar discusiones”.</li>
+            <li>“Si me elijo a mí, abandono a mi familia”.</li>
+          </ul>
+        </div>
+
+        <div class="idea-clave">
+          Estoy aprendiendo a cambiar estas creencias por otras más realistas:
+          <strong>puedo querer a mi familia y, al mismo tiempo, protegerme.</strong>
+        </div>
+      </section>
+
+      <!-- Sección: NO suave -->
+      <section class="section" id="no-suave">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon" style="background:#fff3da;">🍃</div>
+              <div class="card-title">Qué es un “NO suave”</div>
+            </div>
+            <div class="pill-tag">Primer paso</div>
+          </div>
+          <p>
+            Un <strong>NO suave</strong> es una forma de cuidar mis límites
+            manteniendo un tono amable. No me obligo a justificarme demasiado,
+            pero tampoco entro en ataque.
+          </p>
+          <p>
+            Es útil cuando recién empiezo a practicar y todavía me siento
+            insegura o con mucha culpa.
+          </p>
+        </article>
+
+        <div class="block">
+          <div class="block-title">Claves del NO suave</div>
+          <ul>
+            <li>Uso un tono tranquilo y claro.</li>
+            <li>Hablo en primera persona: “yo no puedo…”, “yo necesito…”.</li>
+            <li>No discuto: repito mi mensaje las veces que sea necesario.</li>
+            <li>Reconozco la necesidad del otro, pero sin abandonar la mía.</li>
+          </ul>
+        </div>
+
+        <div class="idea-clave">
+          Un NO suave es como una <strong>columna flexible</strong>:
+          no se rompe, pero tampoco golpea.
+        </div>
+      </section>
+
+      <!-- Sección: Ejemplos suaves -->
+      <section class="section" id="ej-suaves">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon" style="background:#e4f7ff;">🫧</div>
+              <div class="card-title">Ejemplos de NO suave</div>
+            </div>
+            <div class="pill-tag">Práctica</div>
+          </div>
+          <p>Frases que puedo usar cuando quiero decir que no, con amabilidad:</p>
+        </article>
+
+        <div class="block">
+          <div class="block-title">Con mi mamá</div>
+          <ul>
+            <li>“Mamá, ahora no puedo ayudarte con más dinero. Estoy cuidando mi estabilidad”.</li>
+            <li>“Sé que esto es importante para ti, pero hoy no me es posible hacerlo”.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-title">Con otras personas</div>
+          <ul>
+            <li>“Gracias por pensar en mí, pero esta vez no voy a poder”.</li>
+            <li>“En este momento necesito descansar, así que no voy a ir”.</li>
+            <li>“No, ahora mismo no me es posible asumir otra responsabilidad”.</li>
+          </ul>
+        </div>
+
+        <div class="idea-clave">
+          Cada vez que digo un NO suave, <strong>mi sistema nervioso aprende</strong>
+          que es posible poner límites sin que el mundo se caiga.
+        </div>
+      </section>
+
+      <!-- Sección: NO firme -->
+      <section class="section" id="no-firme">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon" style="background:#ffe4e1;">🔥</div>
+              <div class="card-title">Qué es un “NO firme”</div>
+            </div>
+            <div class="pill-tag">Protección</div>
+          </div>
+          <p>
+            Un <strong>NO firme</strong> es necesario cuando la otra persona
+            insiste, minimiza lo que digo o intenta manipularme.
+          </p>
+          <p>
+            Aquí mi prioridad es <strong>protegerme</strong>. Mantengo la calma,
+            pero ya no cedo ni negocio algo que me hace daño.
+          </p>
+        </article>
+
+        <div class="block">
+          <div class="block-title">Características del NO firme</div>
+          <ul>
+            <li>Es breve y directo.</li>
+            <li>No entro en explicaciones largas ni defensas eternas.</li>
+            <li>Si repiten la petición, repito mi NO con la misma frase.</li>
+            <li>Si es necesario, termino la conversación o me retiro.</li>
+          </ul>
+        </div>
+
+        <div class="idea-clave">
+          El NO firme es un <strong>acto de autoprotección</strong>, no de guerra.
+          Me elijo a mí cuando el otro no respeta mis límites.
+        </div>
+      </section>
+
+      <!-- Sección: Ejemplos firmes -->
+      <section class="section" id="ej-firmes">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon" style="background:#e6f0ff;">🛡️</div>
+              <div class="card-title">Ejemplos de NO firme</div>
+            </div>
+            <div class="pill-tag">Defensa clara</div>
+          </div>
+          <p>Frases para situaciones donde ya intenté ser suave y no funcionó:</p>
+        </article>
+
+        <div class="block">
+          <div class="block-title">Con mi mamá</div>
+          <ul>
+            <li>“Mamá, ya te dije que no voy a seguir vendiendo propiedades para pagar deudas. Este tema no es negociable”.</li>
+            <li>“Entiendo que estés molesta, pero mi decisión está tomada: no voy a asumir esa nueva deuda”.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-title">Con otras personas</div>
+          <ul>
+            <li>“No. Ya te expliqué mis razones y no voy a cambiar de opinión”.</li>
+            <li>“No voy a hablar más de este tema ahora. Si sigues insistiendo, voy a cortar la llamada”.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Sección: Antes del “sí” -->
+      <section class="section" id="antes-si">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon" style="background:#e7ffe8;">🧠</div>
+              <div class="card-title">Pausa antes de decir “sí”</div>
+            </div>
+            <div class="pill-tag">Mini ritual</div>
+          </div>
+          <p>
+            Antes de responder, puedo regalarme una pequeña pausa.
+            No estoy obligada a contestar de inmediato.
+          </p>
+        </article>
+
+        <div class="block">
+          <div class="block-title">Pasos para mi pausa protectora</div>
+          <ul>
+            <li>Respiro hondo tres veces.</li>
+            <li>Me pregunto: “¿Realmente quiero hacer esto o solo quiero evitar problemas?”.</li>
+            <li>Reviso cómo está mi energía: ¿tengo tiempo?, ¿tengo dinero?, ¿tengo fuerzas?</li>
+            <li>Si no estoy segura, respondo: “Lo voy a pensar y luego te confirmo”.</li>
+          </ul>
+        </div>
+
+        <div class="idea-clave">
+          Cada pausa que me doy antes de decir “sí” es un acto de
+          <strong>respeto hacia mi propio tiempo y mi salud</strong>.
+        </div>
+      </section>
+
+      <!-- Sección: Ejercicio -->
+      <section class="section" id="ejercicio">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon" style="background:#fff1da;">💪</div>
+              <div class="card-title">Ejercicio de práctica semanal</div>
+            </div>
+            <div class="pill-tag">Entrenamiento</div>
+          </div>
+          <p>
+            Este es el ejercicio que voy a trabajar esta semana:
+            practicar al menos <strong>un NO consciente</strong>.
+          </p>
+        </article>
+
+        <div class="block">
+          <div class="block-title">Paso 1: Detectar una situación</div>
+          <ul>
+            <li>Pienso en una situación pequeña donde casi siempre digo que sí por costumbre.</li>
+            <li>Ejemplo: un favor extra en el trabajo, una salida a la que no quiero ir, un gasto que no deseo hacer.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-title">Paso 2: Elegir mi frase</div>
+          <ul>
+            <li>Escojo una frase de NO suave o NO firme de esta guía.</li>
+            <li>La escribo en una nota del celular para tenerla a mano.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-title">Paso 3: Observar cómo me siento</div>
+          <ul>
+            <li>Después de decir NO, observo qué siento en el cuerpo: ¿nudo en el estómago?, ¿alivio?, ¿culpa?</li>
+            <li>Me recuerdo: “Estoy aprendiendo. No tengo que hacerlo perfecto”.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Sección: Frases -->
+      <section class="section" id="frases">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title-area">
+              <div class="card-icon" style="background:#ffe9fb;">💖</div>
+              <div class="card-title">Frases para repetirme</div>
+            </div>
+            <div class="pill-tag">Recordatorios</div>
+          </div>
+          <p>
+            Puedo leer estas frases cuando la culpa o el miedo se hagan muy fuertes.
+          </p>
+        </article>
+
+        <div class="phrase">
+          “Tengo derecho a decir NO, incluso cuando los demás no lo entienden.”
+          <small>Auto-validación</small>
+        </div>
+        <div class="phrase">
+          “Poner un límite hoy es cuidar a la Fátima del futuro.”
+          <small>Mirada a largo plazo</small>
+        </div>
+        <div class="phrase">
+          “No soy responsable de las decisiones financieras de otras personas.”
+          <small>Responsabilidad real</small>
+        </div>
+        <div class="phrase">
+          “Puedo querer a mi mamá y, al mismo tiempo, cuidar mi estabilidad emocional y económica.”
+          <small>Amor con límites</small>
+        </div>
+        <div class="phrase">
+          “No necesito justificar mi NO para que sea válido.”
+          <small>Autonomía</small>
+        </div>
+      </section>
+
+      <!-- Créditos dentro del app -->
+      <div class="creditos">
+        Desarrollado por <span>Lic. Gonzalo Buendía – Psicólogo</span> y
+        <span>Blanquita – Coterapeuta 🐾</span>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // Activar pestañas y secciones
+    document.addEventListener("DOMContentLoaded", () => {
+      const buttons = document.querySelectorAll(".tab-btn");
+      const sections = document.querySelectorAll(".section");
+
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const targetId = btn.getAttribute("data-section");
+          const targetSection = document.getElementById(targetId);
+
+          if (!targetSection) return; // seguridad por si algo se borra
+
+          // Activar botón
+          buttons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          // Mostrar la sección correspondiente
+          sections.forEach(sec => {
+            sec.classList.toggle("active", sec === targetSection);
+          });
+
+          // Scroll hacia arriba en pantallas pequeñas
+          if (window.innerWidth < 700) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
